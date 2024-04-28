@@ -3,6 +3,7 @@ import { useCreateUserMutation } from "../../context/userApi";
 
 const CreateUsers = () => {
   let [createUser, { data: dataCreateUser }] = useCreateUserMutation();
+  console.log(dataCreateUser);
   let firstName = useRef();
   let lastName = useRef();
   let phones1 = useRef();
@@ -22,21 +23,52 @@ const CreateUsers = () => {
     createUser(user);
   };
   return (
-    <>
+    <div div className="container">
       <form
+        className="form"
         style={{ display: "flex", flexDirection: "column", gap: "20px" }}
         onSubmit={handleCreateUser}
         action=""
       >
-        <input placeholder="firstName" ref={firstName} type="text" />
-        <input placeholder="lastName" ref={lastName} type="text" />
-        <input placeholder="phones1" ref={phones1} type="text" />
-        <input placeholder="role" ref={role} type="text" />
-        <input placeholder="userName" ref={userName} type="text" />
-        <input placeholder="password" ref={password} type="text" />
-        <button>Add</button>
+        <input
+          className="form__input"
+          placeholder="First Name"
+          ref={firstName}
+          type="text"
+        />
+        <input
+          className="form__input"
+          placeholder="Last Name"
+          ref={lastName}
+          type="text"
+        />
+        <input
+          className="form__input"
+          placeholder="Phone number"
+          ref={phones1}
+          type="text"
+        />
+        <input
+          className="form__input"
+          placeholder="Role user"
+          ref={role}
+          type="text"
+        />
+        <input
+          className="form__input"
+          placeholder="User Name"
+          ref={userName}
+          type="text"
+        />
+        <input
+          className="form__input"
+          placeholder="Password"
+          ref={password}
+          type="password"
+        />
+        <button className="form__btn">Add</button>
       </form>
-    </>
+    </div>
   );
 };
 
